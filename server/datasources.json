@@ -1,0 +1,12 @@
+{
+  "db":{
+    "host":"localhost",
+    "port":3306,
+    "url":"mysql://admin:@localhost:3306/calories-counter",
+    "database":"calories-counter",
+    "password":"",
+    "name":"db",
+    "user":"admin",
+    "connector":"mysql"
+  }
+}

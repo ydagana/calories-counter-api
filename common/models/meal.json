@@ -1,0 +1,62 @@
+{
+  "name": "meal",
+  "description": "A model representing meals.",
+  "plural": "meals",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "type": {
+      "type": "string",
+      "length": 128,
+      "precision": null,
+      "scale": null
+    },
+    "created": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    },
+    "updated": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    },
+    "time": {
+      "type": "date",
+      "required": true,
+      "index": true,
+      "defaultFn": "now"
+    },
+    "description": {
+      "type": "string",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null
+    },
+    "calories": {
+      "type": "Number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "user_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

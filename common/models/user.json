@@ -1,0 +1,43 @@
+{
+  "name": "user",
+  "description": "A model representing our users in the system.",
+  "plural": "users",
+  "base": "User",
+  "idInjection": false,
+  "properties": {
+    "firstName": {
+      "type": "String",
+      "length": 128,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "first_name",
+        "dataType": "VARCHAR",
+        "dataLength": 128,
+        "nullable": "N"
+      }
+    },
+    "lastName": {
+      "type": "String",
+      "length": 128,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "last_name",
+        "dataType": "VARCHAR",
+        "dataLength": 128,
+        "nullable": "N"
+      }
+    },
+    "created": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {
+  },
+  "acls": [],
+  "methods": []
+}
