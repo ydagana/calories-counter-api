@@ -10,7 +10,9 @@
     "start": "node .",
     "posttest": "npm run lint",
     "create-db": "node bin/automigrate.js && cross-env SEED=true loopback-db-migrate up --datasource db",
-    "update-db": "UPDATE=true node bin/automigrate.js && SEED=true loopback-db-migrate up --datasource db"
+    "update-db": "UPDATE=true node bin/automigrate.js && SEED=true loopback-db-migrate up --datasource db",
+    "clear-db": "node server/migrations/clear.js",
+    "rebuild-db": "npm run clear-db && npm run update-db"
   },
   "dependencies": {
     "bluebird": "^3.5.3",

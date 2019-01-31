@@ -47,10 +47,16 @@
     "user": {
       "type": "belongsTo",
       "model": "user",
-      "foreignKey": "user_id"
+      "foreignKey": "userId"
     }
   },
   "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "owner",
+      "permission": "ALLOW"
+    },
     {
       "accessType": "*",
       "principalType": "ROLE",

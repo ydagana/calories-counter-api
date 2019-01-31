@@ -5,30 +5,6 @@
   "base": "User",
   "idInjection": false,
   "properties": {
-    "firstName": {
-      "type": "String",
-      "length": 128,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "first_name",
-        "dataType": "VARCHAR",
-        "dataLength": 128,
-        "nullable": "N"
-      }
-    },
-    "lastName": {
-      "type": "String",
-      "length": 128,
-      "precision": null,
-      "scale": null,
-      "mysql": {
-        "columnName": "last_name",
-        "dataType": "VARCHAR",
-        "dataLength": 128,
-        "nullable": "N"
-      }
-    },
     "created": {
       "type": "date",
       "required": true,
@@ -37,6 +13,11 @@
   },
   "validations": [],
   "relations": {
+    "meals": {
+      "type": "hasMany",
+      "model": "meal",
+      "foreignKey": "userId"
+    }
   },
   "acls": [],
   "methods": []
