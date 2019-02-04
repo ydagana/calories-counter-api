@@ -9,6 +9,13 @@
       "type": "date",
       "required": true,
       "defaultFn": "now"
+    },
+    "caloriesGoal": {
+      "type": "number",
+      "required": true,
+      "mysql": {
+        "default": 1500
+      }
     }
   },
   "validations": [],
@@ -16,9 +23,56 @@
     "meals": {
       "type": "hasMany",
       "model": "meal",
-      "foreignKey": "userId"
+      "foreignKey": ""
+    },
+    "role": {
+      "type": "hasMany",
+      "model": "Role",
+      "foreignKey": "principalId",
+      "through": "RoleMapping",
+      "keyThrough": "roleId"
     }
   },
-  "acls": [],
-  "methods": []
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "manager",
+      "permission": "ALLOW",
+      "property": "getUsers"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "manager",
+      "permission": "ALLOW",
+      "property": "deleteUser"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
 }

@@ -1,5 +1,4 @@
 "use strict";
-
 const loopback = require("loopback");
 const boot = require("loopback-boot");
 

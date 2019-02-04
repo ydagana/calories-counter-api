@@ -22,11 +22,7 @@ const migration = async () => {
     // migrate one table at a time to prevent overloading the database with connections
     // get the tables from the data source directly
     let lbTables = Object.keys(ds.connector._models);
-    if (process.env.UPDATE) {
-      await ds.autoupdate(lbTables);
-    } else {
-      await ds.automigrate(lbTables);
-    }
+    await ds.autoupdate(lbTables);
     console.log("The following Loopback tables:\n");
     for (let lbTable of lbTables) {
       console.log(lbTable);
